@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rate My CAD Services</title>
+  <title>Évaluez Mes Services CAD</title>
   <style>
     body {
       background: #f0f4f8;
@@ -98,73 +98,73 @@
 </head>
 <body>
   <form class="rating-box" action="https://formspree.io/f/mrbprewl" method="POST">
-    <h2>🛠️ Rate My CAD Services</h2>
+    <h2>🛠️ Évaluez Mes Services CAD</h2>
 
-    <label for="name">🧑 Your Name</label>
+    <label for="name">🧑 Votre Nom</label>
     <input type="text" name="name" id="name" required />
 
-    <label for="email">📧 Your Email</label>
+    <label for="email">📧 Votre Email</label>
     <input type="email" name="email" id="email" required />
 
-    <label for="serviceType">🔧 Which service did you use?</label>
+    <label for="serviceType">🔧 Quel service avez-vous utilisé ?</label>
     <select name="serviceType" id="serviceType" required>
-      <option disabled selected>Select one</option>
-      <option value="2D Drafting">2D Drafting (Architectural or Mechanical)</option>
-      <option value="3D Modeling">3D Modeling & Sketching</option>
-      <option value="Video Concept">3D Max Video Concept</option>
-      <option value="Full Package">Full Project (2D, 3D, and Video)</option>
+      <option disabled selected>Sélectionnez une option</option>
+      <option value="2D Drafting">2D Dessin (Architectural ou Mécanique)</option>
+      <option value="3D Modeling">Modélisation 3D & Esquisse</option>
+      <option value="Video Concept">Concept Vidéo 3D Max</option>
+      <option value="Full Package">Pack Complet (2D, 3D et Vidéo)</option>
     </select>
 
-    <label for="satisfaction">🤔 How satisfied were you?</label>
+    <label for="satisfaction">🤔 À quel point êtes-vous satisfait ?</label>
     <select name="satisfaction" id="satisfaction" required>
-      <option disabled selected>Select one</option>
-      <option value="blown away">Blown away – 10/10 would recommend</option>
-      <option value="satisfied">Very satisfied with the result</option>
-      <option value="okay">It was okay, but could be better</option>
-      <option value="meh">Meh – I expected more</option>
+      <option disabled selected>Sélectionnez une option</option>
+      <option value="blown away">Ébloui – 10/10, je recommande</option>
+      <option value="satisfied">Très satisfait du résultat</option>
+      <option value="okay">C'était bien, mais ça pourrait être mieux</option>
+      <option value="meh">Bof – Je m'attendais à plus</option>
     </select>
 
-    <label for="highlight">💡 What impressed you the most?</label>
+    <label for="highlight">💡 Qu'est-ce qui vous a le plus impressionné ?</label>
     <select name="highlight" id="highlight" required>
-      <option disabled selected>Select one</option>
-      <option value="speed">Speed of delivery</option>
-      <option value="creativity">Creativity and design quality</option>
-      <option value="accuracy">Technical accuracy & details</option>
-      <option value="communication">Friendly and clear communication</option>
+      <option disabled selected>Sélectionnez une option</option>
+      <option value="speed">Vitesse de livraison</option>
+      <option value="creativity">Créativité et qualité de design</option>
+      <option value="accuracy">Précision technique & détails</option>
+      <option value="communication">Communication amicale et claire</option>
     </select>
 
-    <!-- 4 Extra Qs -->
-    <label for="software">🧰 Which software did I use for your project?</label>
+    <!-- 4 Questions supplémentaires -->
+    <label for="software">🧰 Quel logiciel ai-je utilisé pour votre projet ?</label>
     <select name="software" id="software">
-      <option disabled selected>Select one</option>
+      <option disabled selected>Sélectionnez une option</option>
       <option value="AutoCAD">AutoCAD</option>
       <option value="3ds Max">3ds Max</option>
       <option value="SketchUp">SketchUp</option>
       <option value="Fusion 360">Fusion 360</option>
-      <option value="Mixed">A mix of tools</option>
+      <option value="Mixed">Un mélange d'outils</option>
     </select>
 
-    <label for="delivery">📦 Was the delivery time acceptable?</label>
+    <label for="delivery">📦 Le délai de livraison était-il acceptable ?</label>
     <select name="delivery" id="delivery">
-      <option disabled selected>Select one</option>
-      <option value="fast">Yes, very fast!</option>
-      <option value="on-time">On time, as promised</option>
-      <option value="late">Slight delay but no worries</option>
-      <option value="too slow">Too slow for my liking</option>
+      <option disabled selected>Sélectionnez une option</option>
+      <option value="fast">Oui, très rapide !</option>
+      <option value="on-time">À temps, comme promis</option>
+      <option value="late">Légère retard mais pas grave</option>
+      <option value="too slow">Trop lent à mon goût</option>
     </select>
 
-    <label for="return">📂 Would you return for more work?</label>
+    <label for="return">📂 Revenez-vous pour plus de travail ?</label>
     <select name="return" id="return">
-      <option disabled selected>Select one</option>
+      <option disabled selected>Sélectionnez une option</option>
       <option value="yes">100%, InshaAllah</option>
-      <option value="maybe">Maybe, depends on future needs</option>
-      <option value="no">Probably not</option>
+      <option value="maybe">Peut-être, selon les besoins futurs</option>
+      <option value="no">Probablement pas</option>
     </select>
 
-    <label for="improvements">🔍 Anything I can improve?</label>
-    <textarea name="improvements" id="improvements" placeholder="Be honest, we wish to grow..."></textarea>
+    <label for="improvements">🔍 Des améliorations possibles ?</label>
+    <textarea name="improvements" id="improvements" placeholder="Soyez honnête, nous voulons grandir..."></textarea>
 
-    <label>⭐ How would you rate the overall experience?</label>
+    <label>⭐ Comment évalueriez-vous l'expérience globale ?</label>
     <div class="stars" id="starContainer">
       <input type="hidden" name="rating" id="ratingValue" value="0" />
       <i class="star" data-value="1">&#9733;</i>
@@ -174,15 +174,15 @@
       <i class="star" data-value="5">&#9733;</i>
     </div>
 
-    <label for="feedback">📝 Any final thoughts or shoutouts?</label>
-    <textarea name="feedback" id="feedback" placeholder="Drop your full feedback here..." required></textarea>
+    <label for="feedback">📝 Dernières pensées ou remerciements ?</label>
+    <textarea name="feedback" id="feedback" placeholder="Partagez vos commentaires ici..." required></textarea>
 
-    <button type="submit">🚀 Submit Feedback</button>
+    <button type="submit">🚀 Soumettre le retour</button>
 
     <div class="disclaimer">
-      <strong>Data Privacy Note:</strong><br />
-      By submitting, you agree to share your responses with the CAD service owner (me! 😊).<br />
-      This form uses <a href="https://formspree.io" target="_blank">Formspree</a> to securely collect and deliver your answers. You have the right to request a copy or deletion of your data anytime.
+      <strong>Note sur la confidentialité des données :</strong><br />
+      En soumettant, vous acceptez de partager vos réponses avec le propriétaire du service CAD (moi ! 😊).<br />
+      Ce formulaire utilise <a href="https://formspree.io" target="_blank">Formspree</a> pour collecter et transmettre vos réponses de manière sécurisée. Vous avez le droit de demander une copie ou la suppression de vos données à tout moment.
     </div>
   </form>
 
