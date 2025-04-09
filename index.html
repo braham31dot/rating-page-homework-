@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rate My CAD Services</title>
+  <style>
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .rating-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 450px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #2d3436;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .star {
+      font-size: 30px;
+      color: lightgray;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .star.hovered,
+    .star.selected {
+      color: gold;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      resize: none;
+      height: 80px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0984e3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0652dd;
+    }
+
+    #thankYouMsg {
+      margin-top: 20px;
+      color: #2d3436;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <div class="rating-box">
+    <h2>🛠️ Rate Your Experience</h2>
+
+    <label for="serviceType">🔧 Which service did you use?</label>
+    <select id="serviceType">
+      <option disabled selected>Select one</option>
+      <option value="2D Drafting">2D Drafting (Architectural or Mechanical)</option>
+      <option value="3D Modeling">3D Modeling & Sketching</option>
+      <option value="Video Concept">3D Max Video Concept</option>
+      <option value="Full Package">Full Project (2D, 3D, and Video)</option>
+    </select>
+
+    <label for="satisfaction">🤔 How satisfied were you?</label>
+    <select id="satisfaction">
+      <option disabled selected>Select one</option>
+      <option value="blown away">Blown away – 10/10 would recommend</option>
+      <option value="satisfied">Very satisfied with the result</option>
+      <option value="okay">It was okay, but could be better</option>
+      <option value="meh">Meh – I expected more</option>
+    </select>
+
+    <label for="highlight">💡 What impressed you the most?</label>
+    <select id="highlight">
+      <option disabled selected>Select one</option>
+      <option value="speed">Speed of delivery</option>
+      <option value="creativity">Creativity and design quality</option>
+      <option value="accuracy">Technical accuracy & details</option>
+      <option value="communication">Friendly and clear communication</option>
+    </select>
+
+    <div class="stars" id="starContainer">
+      <i class="star" data-value="1">&#9733;</i>
+      <i class="star" data-value="2">&#9733;</i>
+      <i class="star" data-value="3">&#9733;</i>
+      <i class="star" data-value="4">&#9733;</i>
+      <i class="star" data-value="5">&#9733;</i>
+    </div>
+
+    <textarea id="feedback" placeholder="Any other thoughts or suggestions? Write here..."></textarea>
+    <button onclick="submitRating()">Submit</button>
+    <div id="thankYouMsg"></div>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll('.star');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('mouseover', () => {
+        highlightStars(star.dataset.value);
+      });
+
+      star.addEventListener('mouseout', () => {
+        highlightStars(selectedRating);
+      });
+
+      star.addEventListener('click', () => {
+        selectedRating = star.dataset.value;
+        highlightStars(selectedRating);
+      });
+    });
+
+    function highlightStars(limit) {
+      stars.forEach(star => {
+        star.classList.remove('hovered', 'selected');
+        if (star.dataset.value <= limit) {
+          star.classList.add('hovered');
+        }
+      });
+    }
+
+    function submitRating() {
+      const service = document.getElementById('serviceType').value;
+      const satisfaction = document.getElementById('satisfaction').value;
+      const highlight = document.getElementById('highlight').value;
+      const feedback = document.getElementById('feedback').value.trim();
+
+      if (!selectedRating || !service || !satisfaction || !highlight) {
+        alert('Please complete all fields and select a rating ⭐');
+        return;
+      }
+
+      const msg = `
+✅ Service: ${service}
+😎 Satisfaction: ${satisfaction}
+✨ What stood out: ${highlight}
+⭐ Your Rating: ${selectedRating}/5
+📝 Feedback: ${feedback || 'No extra comments'}
+      `;
+
+      document.getElementById('thankYouMsg').innerText = msg;
+    }
+  </script>
+</body>
+</html>
